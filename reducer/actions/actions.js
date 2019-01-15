@@ -1,0 +1,5 @@
+const SET_INPUT = "SET_INPUT";
+const SET_SUBMIT = "SET_SUBMIT";
+const SET_DELETE = "SET_DELETE";
+
+export { SET_INPUT, SET_SUBMIT, SET_DELETE };

@@ -1,8 +1,12 @@
 import React from "react";
 import { AppLoading, Asset, Font } from "expo";
 import { MaterialIcons } from "@expo/vector-icons";
-import { StyleSheet, Text, View } from "react-native";
-import Ionicons from "@expo/vector-icons/Ionicons";
+import { PersistGate } from "redux-persist/integration/react";
+import { Provider } from "react-redux";
+import configureStore from "./reducer/configureStore";
+import AppPresenter from "./components/AppPresenter";
+
+const { persistor, store } = configureStore();
 
 export default class App extends React.Component {
   state = {
@@ -22,14 +26,11 @@ export default class App extends React.Component {
       );
     }
     return (
-      <View style={styles.container}>
-        <View style={styles.upper}>
-          <Text>This is ready be</Text>
-        </View>
-        <View style={styles.bottom}>
-          <Text>This is ready be</Text>
-        </View>
-      </View>
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <AppPresenter />
+        </PersistGate>
+      </Provider>
     );
   }
 
@@ -40,7 +41,7 @@ export default class App extends React.Component {
         require("./assets/images/readybeSplash.png")
       ]),
       Font.loadAsync({
-        ...Ionicons.font
+        ...MaterialIcons.font
       })
     ]);
   };
@@ -55,22 +56,3 @@ export default class App extends React.Component {
     });
   };
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff"
-  },
-  upper: {
-    flex: 1,
-    backgroundColor: "#f7d794",
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  bottom: {
-    flex: 1,
-    backgroundColor: "#ea8685",
-    alignItems: "center",
-    justifyContent: "center"
-  }
-});
