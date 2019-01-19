@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, StatusBar } from "react-native";
 import Button from "../ButtonComponent";
+import TopText from "../TopTextComponent";
 
 class AppPresenter extends Component {
   state = {
@@ -11,7 +12,8 @@ class AppPresenter extends Component {
     const { test } = this.props;
     return (
       <View style={styles.bottom}>
-        <Text>{test}</Text>
+        <StatusBar hidden={true} />
+        <TopText />
         <Button
           name="accessibility"
           size="m"
@@ -47,7 +49,7 @@ class AppPresenter extends Component {
 const styles = StyleSheet.create({
   bottom: {
     flex: 1,
-    backgroundColor: "#ea8685",
+    backgroundColor: "#f7d794",
     alignItems: "center",
     justifyContent: "center"
   }

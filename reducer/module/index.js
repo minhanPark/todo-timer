@@ -1,7 +1,15 @@
-import { SET_INPUT, SET_SUBMIT, SET_DELETE } from "../actions/actions";
+import {
+  SET_INPUT,
+  SET_SUBMIT,
+  SET_DELETE,
+  SET_FIGHTINGTEXT,
+  SET_EDIT
+} from "../actions/actions";
 
 const initialState = {
-  test: "test?",
+  test: "test???????????",
+  isEdited: false,
+  fightingText: "오늘의 당신을 응원합니다.",
   todoList: [
     { text: "앱 완성시키기", timer: 30 },
     { text: "구글에 올리기", timer: 30 }
@@ -14,6 +22,16 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         todoList: [{ text: action.text, timer: 30 }, ...state.todoList]
+      };
+    case SET_FIGHTINGTEXT:
+      return {
+        ...state,
+        fightingText: action.text
+      };
+    case SET_EDIT:
+      return {
+        ...state,
+        isEdited: action.bool
       };
     default:
       return state;
