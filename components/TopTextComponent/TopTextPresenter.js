@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, View, Text, TextInput } from "react-native";
+import { StyleSheet, View, Text, TextInput, ScrollView } from "react-native";
 import Button from "../ButtonComponent";
 
 class TopText extends Component {
@@ -29,7 +29,11 @@ class TopText extends Component {
     } else {
       return (
         <View style={styles.wrapper}>
-          <View style={styles.row}>
+          <View
+            style={styles.row}
+            scrollEnabled={false}
+            keyboardShouldPersistTaps="handled"
+          >
             <TextInput
               placeholder={fightingText}
               placeholderTextColor={"#ffffff"}
@@ -37,6 +41,8 @@ class TopText extends Component {
               value={text}
               style={styles.topText}
               onBlur={this._handleSubmit}
+              autoCorrect={false}
+              underlineColorAndroid="transparent"
             />
           </View>
           <Button
@@ -75,8 +81,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "flex-end",
-    borderEndWidth: 1,
-    borderBottomWidth: 1,
     padding: 4
   },
   row: {

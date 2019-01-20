@@ -1,7 +1,18 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, StatusBar } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  StatusBar,
+  Dimensions,
+  TextInput,
+  ScrollView
+} from "react-native";
 import Button from "../ButtonComponent";
 import TopText from "../TopTextComponent";
+import AddInput from "../AddInputComponent";
+
+const { width } = Dimensions.get("window");
 
 class AppPresenter extends Component {
   state = {
@@ -11,27 +22,19 @@ class AppPresenter extends Component {
   render() {
     const { test } = this.props;
     return (
-      <View style={styles.bottom}>
+      <View style={styles.container}>
         <StatusBar hidden={true} />
         <TopText />
-        <Button
-          name="accessibility"
-          size="m"
-          color="#1abc9c"
-          clickEvent={this._handleState}
-        />
-        <Button
-          name="accessibility"
-          size="l"
-          color="#1abc9c"
-          clickEvent={this._handleState}
-        />
-        <Button
-          name="account-balance"
-          size="l"
-          color="#e74c3c"
-          clickEvent={this._handleState2}
-        />
+        <View style={styles.todo}>
+          <AddInput />
+          <ScrollView
+            scrollEnabled={false}
+            keyboardShouldPersistTaps="handled"
+            style={styles.scroll}
+          >
+            <Text>dddddddd</Text>
+          </ScrollView>
+        </View>
       </View>
     );
   }
@@ -47,11 +50,24 @@ class AppPresenter extends Component {
 }
 
 const styles = StyleSheet.create({
-  bottom: {
+  container: {
     flex: 1,
     backgroundColor: "#f7d794",
-    alignItems: "center",
-    justifyContent: "center"
+    alignItems: "center"
+  },
+  todo: {
+    flex: 7,
+    backgroundColor: "#f7d794",
+    width: width - 20,
+    alignItems: "center"
+  },
+  scroll: {
+    borderLeftWidth: 2,
+    borderTopWidth: 2,
+    borderRightWidth: 2,
+    borderBottomWidth: 2,
+    width: "100%",
+    backgroundColor: "#f7d794"
   }
 });
 
