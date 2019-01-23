@@ -57,7 +57,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 18,
     top: 18,
-    zIndex: 2
+    zIndex: 2,
+    elevation: 2
   },
   input: {
     // borderLeftWidth: 2,

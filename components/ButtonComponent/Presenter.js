@@ -20,7 +20,7 @@ const Button = ({ name, size, color, clickEvent }) => {
 
 const styles = StyleSheet.create({
   wrapper: {
-    padding: 4
+    padding: 2
   }
 });
 

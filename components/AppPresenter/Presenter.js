@@ -6,11 +6,14 @@ import {
   StatusBar,
   Dimensions,
   TextInput,
-  ScrollView
+  ScrollView,
+  TouchableOpacity
 } from "react-native";
+import { MaterialIcons } from "@expo/vector-icons";
 import Button from "../ButtonComponent";
 import TopText from "../TopTextComponent";
 import AddInput from "../AddInputComponent";
+import TodoItem from "../TodoItem";
 
 const { width } = Dimensions.get("window");
 
@@ -28,11 +31,22 @@ class AppPresenter extends Component {
         <View style={styles.todo}>
           <AddInput />
           <ScrollView
-            scrollEnabled={false}
-            keyboardShouldPersistTaps="handled"
             style={styles.scroll}
+            contentContainerStyle={{
+              // borderLeftWidth: 2,
+              // borderTopWidth: 2,
+              // borderRightWidth: 2,
+              // borderBottomWidth: 2,
+              // borderColor: "red",
+              alignItems: "center"
+            }}
           >
-            <Text>dddddddd</Text>
+            <View style={styles.todoText}>
+              <Text style={styles.innerText}>TODO LIST</Text>
+              <MaterialIcons name="chevron-right" size={20} color="black" />
+            </View>
+            <TodoItem />
+            <TodoItem />
           </ScrollView>
         </View>
       </View>
@@ -62,12 +76,58 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   scroll: {
+    // borderLeftWidth: 2,
+    // borderTopWidth: 2,
+    // borderRightWidth: 2,
+    // borderBottomWidth: 2,
+    width: width - 20,
+    backgroundColor: "#ffffff",
+    borderTopLeftRadius: 8,
+    borderTopRightRadius: 8,
+    paddingTop: 20,
+    // paddingHorizontal: 10,
+    elevation: 2
+  },
+  todoText: {
+    flexDirection: "row",
+    alignItems: "center",
+    alignSelf: "flex-start"
+    // borderLeftWidth: 2,
+    // borderTopWidth: 2,
+    // borderRightWidth: 2,
+    // borderBottomWidth: 2
+  },
+  innerText: {
+    fontSize: 18,
+    //fontWeight: "600",
+    marginLeft: 10
+    // borderLeftWidth: 2,
+    // borderTopWidth: 2,
+    // borderRightWidth: 2,
+    // borderBottomWidth: 2
+  },
+
+  itemWrapper: {
+    flexDirection: "row",
+    maxWidth: "100%"
+  },
+  right: {
+    flexDirection: "row",
     borderLeftWidth: 2,
     borderTopWidth: 2,
     borderRightWidth: 2,
-    borderBottomWidth: 2,
-    width: "100%",
-    backgroundColor: "#f7d794"
+    borderBottomWidth: 2
+  },
+  left: {
+    flexDirection: "row",
+
+    borderLeftWidth: 2,
+    borderTopWidth: 2,
+    borderRightWidth: 2,
+    borderBottomWidth: 2
+  },
+  text: {
+    width: "100%"
   }
 });
 
