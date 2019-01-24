@@ -3,7 +3,8 @@ import {
   SET_SUBMIT,
   SET_DELETE,
   SET_FIGHTINGTEXT,
-  SET_EDIT
+  SET_EDIT,
+  CHANGE_TEXT
 } from "../actions/actions";
 
 const initialState = {
@@ -51,6 +52,16 @@ const reducer = (state = initialState, action) => {
           ...state.todoList.slice(action.index + 1)
         ]
       };
+    case CHANGE_TEXT:
+      return {
+        ...state,
+        todoList: [
+          ...state.todoList.slice(0, action.index),
+          { ...state.todoList[action.index], text: action.text },
+          ...state.todoList.slice(action.index + 1)
+        ]
+      };
+
     default:
       return state;
   }

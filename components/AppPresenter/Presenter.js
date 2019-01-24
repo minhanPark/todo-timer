@@ -32,6 +32,7 @@ class AppPresenter extends Component {
           <AddInput />
           <ScrollView
             style={styles.scroll}
+            keyboardShouldPersistTaps="always"
             contentContainerStyle={{
               // borderLeftWidth: 2,
               // borderTopWidth: 2,

@@ -68,16 +68,13 @@ class TodoItem extends Component {
                 underlineColorAndroid="transparent"
                 style={styles.input}
                 multiline={true}
+                onChangeText={this._handleTextChange}
+                onBlur={this._handleOnblur}
               />
             </View>
           </View>
           <View style={styles.rightCol}>
-            <Button
-              name="hourglass-empty"
-              size="s"
-              color="#2d3436"
-              clickEvent={this._handleState}
-            />
+            <Button name="hourglass-empty" size="s" color="#2d3436" />
             <Button
               name="done"
               size="s"
@@ -97,6 +94,14 @@ class TodoItem extends Component {
   _handleDelete = () => {
     const { index, setDelete } = this.props;
     setDelete(index);
+  };
+  _handleTextChange = text => {
+    const { index, changeText } = this.props;
+    changeText(index, text);
+  };
+  _handleOnblur = () => {
+    const { index, changeText, itemText } = this.props;
+    changeText(index, itemText);
   };
 }
 

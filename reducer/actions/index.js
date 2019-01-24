@@ -3,7 +3,8 @@ import {
   SET_SUBMIT,
   SET_DELETE,
   SET_FIGHTINGTEXT,
-  SET_EDIT
+  SET_EDIT,
+  CHANGE_TEXT
 } from "./actions";
 
 export const setInput = () => ({
@@ -28,4 +29,10 @@ export const setFightingText = text => ({
 export const setEdit = bool => ({
   type: SET_EDIT,
   bool
+});
+
+export const changeText = (index, text) => ({
+  type: CHANGE_TEXT,
+  index,
+  text
 });
