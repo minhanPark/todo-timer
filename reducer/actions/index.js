@@ -4,7 +4,8 @@ import {
   SET_DELETE,
   SET_FIGHTINGTEXT,
   SET_EDIT,
-  CHANGE_TEXT
+  CHANGE_TEXT,
+  HANDLE_COMPLETE
 } from "./actions";
 
 export const setInput = () => ({
@@ -35,4 +36,10 @@ export const changeText = (index, text) => ({
   type: CHANGE_TEXT,
   index,
   text
+});
+
+export const handleComplete = (index, bool) => ({
+  type: HANDLE_COMPLETE,
+  index,
+  bool
 });

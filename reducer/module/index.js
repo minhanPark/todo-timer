@@ -4,7 +4,8 @@ import {
   SET_DELETE,
   SET_FIGHTINGTEXT,
   SET_EDIT,
-  CHANGE_TEXT
+  CHANGE_TEXT,
+  HANDLE_COMPLETE
 } from "../actions/actions";
 
 const initialState = {
@@ -61,7 +62,15 @@ const reducer = (state = initialState, action) => {
           ...state.todoList.slice(action.index + 1)
         ]
       };
-
+    case HANDLE_COMPLETE:
+      return {
+        ...state,
+        todoList: [
+          ...state.todoList.slice(0, action.index),
+          { ...state.todoList[action.index], isComplete: action.bool },
+          ...state.todoList.slice(action.index + 1)
+        ]
+      };
     default:
       return state;
   }

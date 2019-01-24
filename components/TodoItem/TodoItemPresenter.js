@@ -15,18 +15,32 @@ class TodoItem extends Component {
   };
   render() {
     const { isEdit } = this.state;
-    const { itemText, isComplete } = this.props;
+    const { itemText, isComplete, index } = this.props;
     if (!isEdit) {
       return (
-        <View style={styles.itemWrapper}>
+        <View
+          style={[
+            styles.itemWrapper,
+            index % 2 === 0 ? styles.redWrapper : styles.grayWrapper
+          ]}
+        >
           <View style={styles.leftCol}>
             <View>
-              <TouchableOpacity>
-                <View style={styles.circle} />
+              <TouchableOpacity onPressOut={this._handleItemComplete}>
+                <View
+                  style={[
+                    styles.circle,
+                    isComplete
+                      ? styles.completedCircle
+                      : styles.uncompletedCircle
+                  ]}
+                />
               </TouchableOpacity>
             </View>
             <View style={styles.textWrapper}>
-              <Text style={styles.text}>{itemText}</Text>
+              <Text style={isComplete ? styles.completedText : styles.text}>
+                {itemText}
+              </Text>
             </View>
           </View>
           <View style={styles.rightCol}>
@@ -103,24 +117,42 @@ class TodoItem extends Component {
     const { index, changeText, itemText } = this.props;
     changeText(index, itemText);
   };
+  _handleItemComplete = () => {
+    const { handleComplete, isComplete, index } = this.props;
+    if (isComplete) {
+      handleComplete(index, false);
+    } else {
+      handleComplete(index, true);
+    }
+  };
 }
 
 const styles = StyleSheet.create({
   itemWrapper: {
     flexDirection: "row",
-    backgroundColor: "#e77f67",
     borderRadius: 8,
     marginTop: 4,
     paddingVertical: 8,
     width: "98%"
+  },
+  redWrapper: {
+    backgroundColor: "#e77f67"
+  },
+  grayWrapper: {
+    backgroundColor: "#d2dae2"
   },
   circle: {
     width: 20,
     height: 20,
     borderRadius: 10,
     borderWidth: 3,
-    borderColor: "#f7d794",
     marginHorizontal: 6
+  },
+  completedCircle: {
+    borderColor: "#ffffff"
+  },
+  uncompletedCircle: {
+    borderColor: "#f7d794"
   },
   leftCol: {
     flexDirection: "row",
@@ -151,6 +183,10 @@ const styles = StyleSheet.create({
   },
   text: {
     color: "#2d3436"
+  },
+  completedText: {
+    color: "#2d3436",
+    textDecorationLine: "line-through"
   },
   input: {
     color: "#ffffff"
