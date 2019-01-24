@@ -23,7 +23,7 @@ class AppPresenter extends Component {
     name2: "min"
   };
   render() {
-    const { test } = this.props;
+    const { todoList } = this.props;
     return (
       <View style={styles.container}>
         <StatusBar hidden={true} />
@@ -45,8 +45,16 @@ class AppPresenter extends Component {
               <Text style={styles.innerText}>TODO LIST</Text>
               <MaterialIcons name="chevron-right" size={20} color="black" />
             </View>
-            <TodoItem />
-            <TodoItem />
+            {todoList.map((item, index) => {
+              return (
+                <TodoItem
+                  itemText={item.text}
+                  isComplete={item.isComplete}
+                  index={index}
+                  key={index}
+                />
+              );
+            })}
           </ScrollView>
         </View>
       </View>

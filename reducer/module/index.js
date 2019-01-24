@@ -43,10 +43,13 @@ const reducer = (state = initialState, action) => {
         ...state,
         isEdited: action.bool
       };
-    case SET_SUBMIT:
+    case SET_DELETE:
       return {
         ...state,
-        todoList: [{ text: action.text, timer: 30 }, ...state.todoList]
+        todoList: [
+          ...state.todoList.slice(0, action.index),
+          ...state.todoList.slice(action.index + 1)
+        ]
       };
     default:
       return state;

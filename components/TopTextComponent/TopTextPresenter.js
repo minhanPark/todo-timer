@@ -7,7 +7,7 @@ class TopText extends Component {
     text: ""
   };
   render() {
-    const { fightingText, isEdited } = this.props;
+    const { fightingText, isEdited, index } = this.props;
     const { text } = this.state;
 
     if (!isEdited) {

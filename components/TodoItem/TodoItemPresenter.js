@@ -15,6 +15,7 @@ class TodoItem extends Component {
   };
   render() {
     const { isEdit } = this.state;
+    const { itemText, isComplete } = this.props;
     if (!isEdit) {
       return (
         <View style={styles.itemWrapper}>
@@ -25,10 +26,7 @@ class TodoItem extends Component {
               </TouchableOpacity>
             </View>
             <View style={styles.textWrapper}>
-              <Text style={styles.text}>
-                김수한무 거북이와 두루미 삽천갑자 동방삭 치치카포 사리사리센타
-                워리워리 세브리깡
-              </Text>
+              <Text style={styles.text}>{itemText}</Text>
             </View>
           </View>
           <View style={styles.rightCol}>
@@ -48,7 +46,7 @@ class TodoItem extends Component {
               name="delete"
               size="s"
               color="#2d3436"
-              clickEvent={this._handleState}
+              clickEvent={this._handleDelete}
             />
           </View>
         </View>
@@ -64,9 +62,7 @@ class TodoItem extends Component {
             </View>
             <View style={styles.textWrapper}>
               <TextInput
-                value={
-                  "김수한무 거북이와 두루미 삽천갑자 동방삭 치치카포 사리사리센타 워리워리 세브리깡"
-                }
+                value={itemText}
                 placeholderTextColor={"#ffffff"}
                 autoCorrect={false}
                 underlineColorAndroid="transparent"
@@ -88,12 +84,7 @@ class TodoItem extends Component {
               color="#2d3436"
               clickEvent={this._handleEdit}
             />
-            <Button
-              name="delete"
-              size="s"
-              color="#2d3436"
-              clickEvent={this._handleState}
-            />
+            <Button name="delete" size="s" color="#2d3436" />
           </View>
         </View>
       );
@@ -102,6 +93,10 @@ class TodoItem extends Component {
   _handleEdit = () => {
     const { isEdit } = this.state;
     this.setState({ isEdit: !isEdit });
+  };
+  _handleDelete = () => {
+    const { index, setDelete } = this.props;
+    setDelete(index);
   };
 }
 

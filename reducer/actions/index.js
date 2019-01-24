@@ -15,8 +15,9 @@ export const setSubmit = text => ({
   text
 });
 
-export const setDelete = () => ({
-  type: SET_DELETE
+export const setDelete = index => ({
+  type: SET_DELETE,
+  index
 });
 
 export const setFightingText = text => ({
