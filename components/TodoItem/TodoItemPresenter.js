@@ -67,7 +67,12 @@ class TodoItem extends Component {
       );
     } else {
       return (
-        <View style={styles.itemWrapper}>
+        <View
+          style={[
+            styles.itemWrapper,
+            index % 2 === 0 ? styles.redWrapper : styles.grayWrapper
+          ]}
+        >
           <View style={styles.leftCol}>
             <View>
               <TouchableOpacity>
@@ -83,7 +88,7 @@ class TodoItem extends Component {
                 style={styles.input}
                 multiline={true}
                 onChangeText={this._handleTextChange}
-                onBlur={this._handleOnblur}
+                onBlur={this._handleEdit}
               />
             </View>
           </View>
@@ -103,7 +108,14 @@ class TodoItem extends Component {
   }
   _handleEdit = () => {
     const { isEdit } = this.state;
-    this.setState({ isEdit: !isEdit });
+    if (isEdit === true) {
+      const { itemText } = this.props;
+      if (itemText.length !== 0) {
+        this.setState({ isEdit: !isEdit });
+      }
+    } else {
+      this.setState({ isEdit: !isEdit });
+    }
   };
   _handleDelete = () => {
     const { index, setDelete } = this.props;
@@ -112,10 +124,6 @@ class TodoItem extends Component {
   _handleTextChange = text => {
     const { index, changeText } = this.props;
     changeText(index, text);
-  };
-  _handleOnblur = () => {
-    const { index, changeText, itemText } = this.props;
-    changeText(index, itemText);
   };
   _handleItemComplete = () => {
     const { handleComplete, isComplete, index } = this.props;
@@ -131,9 +139,9 @@ const styles = StyleSheet.create({
   itemWrapper: {
     flexDirection: "row",
     borderRadius: 8,
-    marginTop: 4,
+    marginTop: 10,
     paddingVertical: 8,
-    width: "98%"
+    width: "95%"
   },
   redWrapper: {
     backgroundColor: "#e77f67"

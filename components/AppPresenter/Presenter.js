@@ -56,7 +56,17 @@ class AppPresenter extends Component {
                 />
               );
             })}
+            <View style={styles.border} />
           </ScrollView>
+          <View style={styles.buttonWrapper}>
+            <View style={styles.button}>
+              <TouchableOpacity>
+                <View style={styles.textWrapper}>
+                  <Text style={styles.buttonText}>Time Check</Text>
+                </View>
+              </TouchableOpacity>
+            </View>
+          </View>
         </View>
       </View>
     );
@@ -93,14 +103,15 @@ const styles = StyleSheet.create({
     backgroundColor: "#ffffff",
     borderTopLeftRadius: 8,
     borderTopRightRadius: 8,
-    paddingTop: 20,
     // paddingHorizontal: 10,
-    elevation: 2
+    elevation: 2,
+    flex: 1
   },
   todoText: {
     flexDirection: "row",
     alignItems: "center",
-    alignSelf: "flex-start"
+    alignSelf: "flex-start",
+    marginTop: 20
     // borderLeftWidth: 2,
     // borderTopWidth: 2,
     // borderRightWidth: 2,
@@ -137,6 +148,34 @@ const styles = StyleSheet.create({
   },
   text: {
     width: "100%"
+  },
+  buttonWrapper: {
+    width: width - 20,
+    backgroundColor: "#ffffff",
+    alignItems: "center",
+    elevation: 2
+  },
+  button: {
+    width: width - 20,
+    backgroundColor: "#3dc1d3",
+    borderTopLeftRadius: 8,
+    borderTopRightRadius: 8,
+    width: "100%"
+  },
+  textWrapper: {
+    padding: 10
+  },
+  buttonText: {
+    fontWeight: "700",
+    textAlign: "center",
+    color: "#fff",
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 1,
+    textShadowColor: "#000"
+  },
+  border: {
+    backgroundColor: "#ffffff",
+    height: 10
   }
 });
 
