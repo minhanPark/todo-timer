@@ -14,6 +14,9 @@ import Button from "../ButtonComponent";
 import TopText from "../TopTextComponent";
 import AddInput from "../AddInputComponent";
 import TodoItem from "../TodoItem";
+import MiddleText from "../MiddleTextComponent";
+import SingleLongBtn from "../SingleLongButton";
+import DoubleLongBtn from "../DoubleLongButton";
 
 const { width } = Dimensions.get("window");
 
@@ -28,7 +31,7 @@ class AppPresenter extends Component {
       <View style={styles.container}>
         <StatusBar hidden={true} />
         <TopText />
-        <View style={styles.todo}>
+        <View style={styles.main}>
           <AddInput />
           <ScrollView
             style={styles.scroll}
@@ -42,10 +45,7 @@ class AppPresenter extends Component {
               alignItems: "center"
             }}
           >
-            <View style={styles.todoText}>
-              <Text style={styles.innerText}>TODO LIST</Text>
-              <MaterialIcons name="chevron-right" size={20} color="black" />
-            </View>
+            <MiddleText text="TODO LIST" />
             {todoList.map((item, index) => {
               return (
                 <TodoItem
@@ -58,15 +58,7 @@ class AppPresenter extends Component {
             })}
             <View style={styles.border} />
           </ScrollView>
-          <View style={styles.buttonWrapper}>
-            <View style={styles.button}>
-              <TouchableOpacity>
-                <View style={styles.textWrapper}>
-                  <Text style={styles.buttonText}>Time Check</Text>
-                </View>
-              </TouchableOpacity>
-            </View>
-          </View>
+          <DoubleLongBtn leftText="Back" rightText="Reset" />
         </View>
       </View>
     );
@@ -88,7 +80,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#f7d794",
     alignItems: "center"
   },
-  todo: {
+  main: {
     flex: 7,
     backgroundColor: "#f7d794",
     width: width - 20,
@@ -156,7 +148,6 @@ const styles = StyleSheet.create({
     elevation: 2
   },
   button: {
-    width: width - 20,
     backgroundColor: "#3dc1d3",
     borderTopLeftRadius: 8,
     borderTopRightRadius: 8,
