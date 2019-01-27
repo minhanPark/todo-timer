@@ -39,13 +39,15 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#3dc1d3",
     borderTopLeftRadius: 8,
-    borderRightWidth: 1
+    borderRightWidth: 1,
+    borderColor: "white"
   },
   rightButton: {
     flex: 1,
     borderTopRightRadius: 8,
     backgroundColor: "#3dc1d3",
-    borderLeftWidth: 1
+    borderLeftWidth: 1,
+    borderColor: "white"
   },
   textWrapper: {
     padding: 10
