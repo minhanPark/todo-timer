@@ -17,6 +17,8 @@ import TodoItem from "../TodoItem";
 import MiddleText from "../MiddleTextComponent";
 import SingleLongBtn from "../SingleLongButton";
 import DoubleLongBtn from "../DoubleLongButton";
+import TimeItem from "../TimeItem";
+import TotalTime from "../TotalTimeComponent";
 
 const { width } = Dimensions.get("window");
 
@@ -57,6 +59,10 @@ class AppPresenter extends Component {
               );
             })}
             <View style={styles.border} />
+            <TimeItem
+              text="sdsdsdasdTqkralsgks qkralsgks qkralsgks"
+              second={12456}
+            />
           </ScrollView>
           <DoubleLongBtn leftText="Back" rightText="Reset" />
         </View>
