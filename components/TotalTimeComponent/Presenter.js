@@ -5,7 +5,7 @@ import Button from "../ButtonComponent";
 const TotalTime = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.input}>{`Total 13 : 05: 13`}</Text>
+      <Text style={styles.input}>Total 13 : 05: 13</Text>
       <Button name="insert-emoticon" size="s" color="#ffffff" />
     </View>
   );

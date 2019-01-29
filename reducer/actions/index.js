@@ -5,7 +5,8 @@ import {
   SET_FIGHTINGTEXT,
   SET_EDIT,
   CHANGE_TEXT,
-  HANDLE_COMPLETE
+  HANDLE_COMPLETE,
+  TIME_CHECK
 } from "./actions";
 
 export const setInput = () => ({
@@ -41,5 +42,10 @@ export const changeText = (index, text) => ({
 export const handleComplete = (index, bool) => ({
   type: HANDLE_COMPLETE,
   index,
+  bool
+});
+
+export const timeCheck = bool => ({
+  type: TIME_CHECK,
   bool
 });

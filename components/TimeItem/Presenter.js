@@ -3,9 +3,14 @@ import { StyleSheet, View, Text } from "react-native";
 import Button from "../ButtonComponent";
 import timerChange from "../../lib/timerChange";
 
-const TimeItem = ({ text, second }) => {
+const TimeItem = ({ text, second, index }) => {
   return (
-    <View style={styles.itemWrapper}>
+    <View
+      style={[
+        styles.itemWrapper,
+        index % 2 === 0 ? styles.redWrapper : styles.peachWrapper
+      ]}
+    >
       <View style={styles.leftCol}>
         <Text style={styles.text}>{text}</Text>
       </View>
@@ -28,8 +33,13 @@ const styles = StyleSheet.create({
     marginTop: 10,
     paddingVertical: 8,
     paddingHorizontal: 6,
-    backgroundColor: "#e77f67",
     width: "95%"
+  },
+  redWrapper: {
+    backgroundColor: "#ea8685"
+  },
+  peachWrapper: {
+    backgroundColor: "#f3a683"
   },
   leftCol: {
     flexDirection: "row",

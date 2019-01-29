@@ -28,44 +28,69 @@ class AppPresenter extends Component {
     name2: "min"
   };
   render() {
-    const { todoList } = this.props;
+    const { todoList, isTimeChecked } = this.props;
     return (
       <View style={styles.container}>
         <StatusBar hidden={true} />
         <TopText />
-        <View style={styles.main}>
-          <AddInput />
-          <ScrollView
-            style={styles.scroll}
-            keyboardShouldPersistTaps="always"
-            contentContainerStyle={{
-              // borderLeftWidth: 2,
-              // borderTopWidth: 2,
-              // borderRightWidth: 2,
-              // borderBottomWidth: 2,
-              // borderColor: "red",
-              alignItems: "center"
-            }}
-          >
-            <MiddleText text="TODO LIST" />
-            {todoList.map((item, index) => {
-              return (
-                <TodoItem
-                  itemText={item.text}
-                  isComplete={item.isComplete}
-                  index={index}
-                  key={index}
-                />
-              );
-            })}
-            <View style={styles.border} />
-            <TimeItem
-              text="sdsdsdasdTqkralsgks qkralsgks qkralsgks"
-              second={12456}
+        {isTimeChecked ? (
+          <View style={styles.main}>
+            <TotalTime />
+            <ScrollView
+              style={styles.scroll}
+              keyboardShouldPersistTaps="always"
+              contentContainerStyle={{
+                alignItems: "center"
+              }}
+            >
+              <MiddleText text="TIME CHECK" />
+              {todoList.map((item, index) => {
+                return (
+                  <TimeItem
+                    text={item.text}
+                    second={item.totalTime}
+                    index={index}
+                    key={index}
+                  />
+                );
+              })}
+              <View style={styles.border} />
+            </ScrollView>
+            <DoubleLongBtn
+              leftText="Back"
+              rightText="Reset"
+              handleEvent={this._handleTimeCheckFalse}
             />
-          </ScrollView>
-          <DoubleLongBtn leftText="Back" rightText="Reset" />
-        </View>
+          </View>
+        ) : (
+          <View style={styles.main}>
+            <AddInput />
+            <ScrollView
+              style={styles.scroll}
+              keyboardShouldPersistTaps="always"
+              contentContainerStyle={{
+                alignItems: "center"
+              }}
+            >
+              <MiddleText text="TODO LIST" />
+              {todoList.map((item, index) => {
+                return (
+                  <TodoItem
+                    itemText={item.text}
+                    isComplete={item.isComplete}
+                    index={index}
+                    key={index}
+                  />
+                );
+              })}
+              <View style={styles.border} />
+            </ScrollView>
+            <SingleLongBtn
+              text="Time Check"
+              handleEvent={this._handleTimeCheckTrue}
+            />
+          </View>
+        )}
       </View>
     );
   }
@@ -77,6 +102,14 @@ class AppPresenter extends Component {
   _handleState2 = () => {
     const { name2 } = this.state;
     alert(name2);
+  };
+  _handleTimeCheckTrue = () => {
+    const { timeCheck } = this.props;
+    timeCheck(true);
+  };
+  _handleTimeCheckFalse = () => {
+    const { timeCheck } = this.props;
+    timeCheck(false);
   };
 }
 

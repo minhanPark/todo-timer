@@ -1,8 +1,17 @@
 import { connect } from "react-redux";
 import AppPresenter from "./Presenter";
+import { timeCheck } from "../../reducer/actions";
 
 const mapStateToProps = state => ({
-  todoList: state.todoList
+  todoList: state.todoList,
+  isTimeChecked: state.isTimeChecked
 });
 
-export default connect(mapStateToProps)(AppPresenter);
+const mapDispatchToProps = dispatch => ({
+  timeCheck: bool => dispatch(timeCheck(bool))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AppPresenter);

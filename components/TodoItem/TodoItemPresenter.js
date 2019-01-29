@@ -21,7 +21,7 @@ class TodoItem extends Component {
         <View
           style={[
             styles.itemWrapper,
-            index % 2 === 0 ? styles.redWrapper : styles.grayWrapper
+            index % 2 === 0 ? styles.redWrapper : styles.peachWrapper
           ]}
         >
           <View style={styles.leftCol}>
@@ -144,10 +144,10 @@ const styles = StyleSheet.create({
     width: "95%"
   },
   redWrapper: {
-    backgroundColor: "#e77f67"
+    backgroundColor: "#ea8685"
   },
-  grayWrapper: {
-    backgroundColor: "#d2dae2"
+  peachWrapper: {
+    backgroundColor: "#f3a683"
   },
   circle: {
     width: 20,

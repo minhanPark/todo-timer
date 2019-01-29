@@ -5,12 +5,14 @@ import {
   SET_FIGHTINGTEXT,
   SET_EDIT,
   CHANGE_TEXT,
-  HANDLE_COMPLETE
+  HANDLE_COMPLETE,
+  TIME_CHECK
 } from "../actions/actions";
 
 const initialState = {
   isEdited: false,
   fightingText: "오늘의 당신을 응원합니다.",
+  isTimeChecked: false,
   todoList: [
     {
       text: "앱 완성시키기 그래서 2개 3개 점점 쌓아 나가면 좋겠다",
@@ -70,6 +72,11 @@ const reducer = (state = initialState, action) => {
           { ...state.todoList[action.index], isComplete: action.bool },
           ...state.todoList.slice(action.index + 1)
         ]
+      };
+    case TIME_CHECK:
+      return {
+        ...state,
+        isTimeChecked: action.bool
       };
     default:
       return state;
