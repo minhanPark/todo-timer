@@ -4,7 +4,8 @@ import { timeCheck } from "../../reducer/actions";
 
 const mapStateToProps = state => ({
   todoList: state.todoList,
-  isTimeChecked: state.isTimeChecked
+  isTimeChecked: state.isTimeChecked,
+  isTimerStarted: state.isTimerStarted
 });
 
 const mapDispatchToProps = dispatch => ({

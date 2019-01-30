@@ -48,7 +48,7 @@ class TodoItem extends Component {
               name="hourglass-empty"
               size="s"
               color="#2d3436"
-              clickEvent={this._handleState}
+              clickEvent={this._handleTimer}
             />
             <Button
               name="create"
@@ -132,6 +132,10 @@ class TodoItem extends Component {
     } else {
       handleComplete(index, true);
     }
+  };
+  _handleTimer = () => {
+    const { startTimer, index } = this.props;
+    startTimer(index, true);
   };
 }
 

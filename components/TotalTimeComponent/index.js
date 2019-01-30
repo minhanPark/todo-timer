@@ -1,3 +1,8 @@
 import TotalTime from "./Presenter";
+import { connect } from "react-redux";
 
-export default TotalTime;
+const mapStateToProps = state => ({
+  todoList: state.todoList
+});
+
+export default connect(mapStateToProps)(TotalTime);

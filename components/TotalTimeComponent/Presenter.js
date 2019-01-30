@@ -1,11 +1,18 @@
 import React from "react";
 import { StyleSheet, View, Text } from "react-native";
 import Button from "../ButtonComponent";
+import timerChange from "../../lib/timerChange";
 
-const TotalTime = () => {
+const TotalTime = ({ todoList }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.input}>Total 13 : 05: 13</Text>
+      <Text style={styles.input}>
+        {todoList.length === 0
+          ? `Total 00 : 00 : 00`
+          : `Total ${timerChange(
+              todoList.map(item => item.totalTime).reduce((a, b) => a + b)
+            )}`}
+      </Text>
       <Button name="insert-emoticon" size="s" color="#ffffff" />
     </View>
   );

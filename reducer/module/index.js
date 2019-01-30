@@ -6,13 +6,17 @@ import {
   SET_EDIT,
   CHANGE_TEXT,
   HANDLE_COMPLETE,
-  TIME_CHECK
+  TIME_CHECK,
+  START_TIMER,
+  UPDATE_TIMER
 } from "../actions/actions";
 
 const initialState = {
   isEdited: false,
   fightingText: "오늘의 당신을 응원합니다.",
   isTimeChecked: false,
+  isTimerStarted: false,
+  currentItem: 0,
   todoList: [
     {
       text: "앱 완성시키기 그래서 2개 3개 점점 쌓아 나가면 좋겠다",
@@ -77,6 +81,24 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         isTimeChecked: action.bool
+      };
+    case START_TIMER:
+      return {
+        ...state,
+        currentItem: action.index,
+        isTimerStarted: action.bool
+      };
+    case UPDATE_TIMER:
+      return {
+        ...state,
+        todoList: [
+          ...state.todoList.slice(0, action.index),
+          {
+            ...state.todoList[action.index],
+            totalTime: state.todoList[action.index].totalTime + action.seconds
+          },
+          ...state.todoList.slice(action.index + 1)
+        ]
       };
     default:
       return state;

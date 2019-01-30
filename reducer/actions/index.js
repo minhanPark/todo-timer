@@ -6,7 +6,9 @@ import {
   SET_EDIT,
   CHANGE_TEXT,
   HANDLE_COMPLETE,
-  TIME_CHECK
+  TIME_CHECK,
+  START_TIMER,
+  UPDATE_TIMER
 } from "./actions";
 
 export const setInput = () => ({
@@ -48,4 +50,16 @@ export const handleComplete = (index, bool) => ({
 export const timeCheck = bool => ({
   type: TIME_CHECK,
   bool
+});
+
+export const startTimer = (index, bool) => ({
+  type: START_TIMER,
+  index,
+  bool
+});
+
+export const updateTimer = (index, seconds) => ({
+  type: UPDATE_TIMER,
+  index,
+  seconds
 });

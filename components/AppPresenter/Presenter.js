@@ -19,6 +19,7 @@ import SingleLongBtn from "../SingleLongButton";
 import DoubleLongBtn from "../DoubleLongButton";
 import TimeItem from "../TimeItem";
 import TotalTime from "../TotalTimeComponent";
+import Timer from "../TimerComponent";
 
 const { width } = Dimensions.get("window");
 
@@ -28,7 +29,10 @@ class AppPresenter extends Component {
     name2: "min"
   };
   render() {
-    const { todoList, isTimeChecked } = this.props;
+    const { todoList, isTimeChecked, isTimerStarted } = this.props;
+    if (isTimerStarted) {
+      return <Timer />;
+    }
     return (
       <View style={styles.container}>
         <StatusBar hidden={true} />
