@@ -38,7 +38,7 @@ export default class App extends React.Component {
     return Promise.all([
       Asset.loadAsync([
         require("./assets/images/readybeIcon192.png"),
-        require("./assets/images/readybeSplash.png")
+        require("./assets/images/splash.png")
       ]),
       Font.loadAsync({
         ...MaterialIcons.font

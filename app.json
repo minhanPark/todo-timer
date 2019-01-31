@@ -9,7 +9,7 @@
     "orientation": "portrait",
     "icon": "./assets/images/readybeIcon192.png",
     "splash": {
-      "image": "./assets/images/readybeSplash.png",
+      "image": "./assets/images/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#f7d794"
     },
