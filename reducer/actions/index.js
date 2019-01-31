@@ -8,7 +8,8 @@ import {
   HANDLE_COMPLETE,
   TIME_CHECK,
   START_TIMER,
-  UPDATE_TIMER
+  UPDATE_TIMER,
+  RESET_TIME
 } from "./actions";
 
 export const setInput = () => ({
@@ -62,4 +63,9 @@ export const updateTimer = (index, seconds) => ({
   type: UPDATE_TIMER,
   index,
   seconds
+});
+
+export const resetTime = newArr => ({
+  type: RESET_TIME,
+  newArr
 });

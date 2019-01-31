@@ -8,7 +8,8 @@ import {
   HANDLE_COMPLETE,
   TIME_CHECK,
   START_TIMER,
-  UPDATE_TIMER
+  UPDATE_TIMER,
+  RESET_TIME
 } from "../actions/actions";
 
 const initialState = {
@@ -99,6 +100,11 @@ const reducer = (state = initialState, action) => {
           },
           ...state.todoList.slice(action.index + 1)
         ]
+      };
+    case RESET_TIME:
+      return {
+        ...state,
+        todoList: action.newArr
       };
     default:
       return state;

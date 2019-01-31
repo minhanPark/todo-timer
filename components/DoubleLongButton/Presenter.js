@@ -9,17 +9,22 @@ import {
 
 const { width } = Dimensions.get("window");
 
-const DoubleLongBtn = ({ leftText, rightText, handleEvent }) => (
+const DoubleLongBtn = ({
+  leftText,
+  rightText,
+  leftHandleEvent,
+  rightHandleEvent
+}) => (
   <View style={styles.buttonWrapper}>
     <View style={styles.leftButton}>
-      <TouchableOpacity onPressOut={handleEvent}>
+      <TouchableOpacity onPressOut={leftHandleEvent}>
         <View style={styles.textWrapper}>
           <Text style={styles.buttonText}>{leftText}</Text>
         </View>
       </TouchableOpacity>
     </View>
     <View style={styles.rightButton}>
-      <TouchableOpacity>
+      <TouchableOpacity onPressOut={rightHandleEvent}>
         <View style={styles.textWrapper}>
           <Text style={styles.buttonText}>{rightText}</Text>
         </View>

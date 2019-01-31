@@ -63,7 +63,8 @@ class AppPresenter extends Component {
             <DoubleLongBtn
               leftText="Back"
               rightText="Reset"
-              handleEvent={this._handleTimeCheckFalse}
+              leftHandleEvent={this._handleTimeCheckFalse}
+              rightHandleEvent={this._handleTimeReset}
             />
           </View>
         ) : (
@@ -115,8 +116,15 @@ class AppPresenter extends Component {
     const { timeCheck } = this.props;
     timeCheck(false);
   };
+  _handleTimeReset = () => {
+    const { todoList, resetTime } = this.props;
+    const newArr = todoList.reduce((acc, cur) => {
+      acc.push({ ...cur, totalTime: 0 });
+      return acc;
+    }, []);
+    resetTime(newArr);
+  };
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
