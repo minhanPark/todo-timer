@@ -1,5 +1,4 @@
 import {
-  SET_INPUT,
   SET_SUBMIT,
   SET_DELETE,
   SET_FIGHTINGTEXT,
@@ -11,10 +10,6 @@ import {
   UPDATE_TIMER,
   RESET_TIME
 } from "./actions";
-
-export const setInput = () => ({
-  type: SET_INPUT
-});
 
 export const setSubmit = text => ({
   type: SET_SUBMIT,

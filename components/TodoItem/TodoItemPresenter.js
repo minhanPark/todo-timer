@@ -70,7 +70,7 @@ class TodoItem extends Component {
         <View
           style={[
             styles.itemWrapper,
-            index % 2 === 0 ? styles.redWrapper : styles.grayWrapper
+            index % 2 === 0 ? styles.redWrapper : styles.peachWrapper
           ]}
         >
           <View style={styles.leftCol}>
@@ -168,11 +168,6 @@ const styles = StyleSheet.create({
   },
   leftCol: {
     flexDirection: "row",
-    // borderLeftWidth: 2,
-    // borderTopWidth: 2,
-    // borderRightWidth: 2,
-    // borderBottomWidth: 2,
-    // borderColor: "green",
     flex: 1,
     alignItems: "center",
     borderTopLeftRadius: 8,
@@ -180,10 +175,6 @@ const styles = StyleSheet.create({
   },
   rightCol: {
     flexDirection: "row",
-    // borderLeftWidth: 2,
-    // borderTopWidth: 2,
-    // borderRightWidth: 2,
-    // borderBottomWidth: 2,
     alignItems: "center",
     borderTopRightRadius: 8,
     borderBottomRightRadius: 8

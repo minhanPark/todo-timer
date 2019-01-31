@@ -20,10 +20,6 @@ const TotalTime = ({ todoList }) => {
 
 const styles = StyleSheet.create({
   container: {
-    // borderLeftWidth: 2,
-    // borderTopWidth: 2,
-    // borderRightWidth: 2,
-    // borderBottomWidth: 2,
     width: "90%",
     backgroundColor: "#d2dae2",
     flexDirection: "row",
@@ -35,10 +31,6 @@ const styles = StyleSheet.create({
     elevation: 2
   },
   input: {
-    // borderLeftWidth: 2,
-    // borderTopWidth: 2,
-    // borderRightWidth: 2,
-    // borderBottomWidth: 2,
     fontSize: 18,
     flex: 1,
     color: "#ffffff"

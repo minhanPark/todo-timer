@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, View, Text, TextInput, ScrollView } from "react-native";
+import { StyleSheet, View, Text, TextInput } from "react-native";
 import Button from "../ButtonComponent";
 
 class TopText extends Component {
@@ -7,7 +7,7 @@ class TopText extends Component {
     text: ""
   };
   render() {
-    const { fightingText, isEdited, index } = this.props;
+    const { fightingText, isEdited } = this.props;
     const { text } = this.state;
 
     if (!isEdited) {
@@ -29,11 +29,7 @@ class TopText extends Component {
     } else {
       return (
         <View style={styles.wrapper}>
-          <View
-            style={styles.row}
-            scrollEnabled={false}
-            keyboardShouldPersistTaps="handled"
-          >
+          <View style={styles.row}>
             <TextInput
               placeholder={fightingText}
               placeholderTextColor={"#ffffff"}

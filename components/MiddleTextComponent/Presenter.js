@@ -18,7 +18,6 @@ const styles = StyleSheet.create({
   },
   innerText: {
     fontSize: 18,
-    //fontWeight: "600",
     marginLeft: 10
   }
 });

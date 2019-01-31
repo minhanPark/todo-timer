@@ -1,5 +1,4 @@
 import {
-  SET_INPUT,
   SET_SUBMIT,
   SET_DELETE,
   SET_FIGHTINGTEXT,
@@ -20,12 +19,7 @@ const initialState = {
   currentItem: 0,
   todoList: [
     {
-      text: "앱 완성시키기 그래서 2개 3개 점점 쌓아 나가면 좋겠다",
-      isComplete: false,
-      totalTime: 0
-    },
-    {
-      text: "구글에 올리기 또 누군가 다운받으면 더 기분 좋겠다",
+      text: "꿈을 크게 가져라. 깨져도 그 조각이 크다.",
       isComplete: false,
       totalTime: 0
     }
