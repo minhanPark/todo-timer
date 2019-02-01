@@ -43,7 +43,7 @@ class TopText extends Component {
           </View>
           <Button
             name="check-box"
-            size="m"
+            size="s"
             color="#596275"
             clickEvent={this._handleSubmit}
           />
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
     marginRight: 4
   },
   topText: {
-    fontSize: 24,
+    fontSize: 22,
     fontWeight: "bold",
     textAlign: "right"
   }

@@ -13,7 +13,7 @@ import {
 
 const initialState = {
   isEdited: false,
-  fightingText: "오늘의 당신을 응원합니다.",
+  fightingText: "당신을 응원합니다.",
   isTimeChecked: false,
   isTimerStarted: false,
   currentItem: 0,

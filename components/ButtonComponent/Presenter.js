@@ -9,7 +9,7 @@ const Button = ({ name, size, color, clickEvent }) => {
         <View>
           <MaterialIcons
             name={name}
-            size={size === "m" ? 36 : size === "s" ? 28 : 52}
+            size={size === "m" ? 36 : size === "s" ? 28 : 60}
             color={color}
           />
         </View>

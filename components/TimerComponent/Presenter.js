@@ -24,7 +24,7 @@ class Timer extends Component {
     const { counter } = this.state;
     return (
       <View style={styles.container}>
-        <Text>{TimerChange(counter)}</Text>
+        <Text style={styles.timeText}>{TimerChange(counter)}</Text>
         <Button
           name="stop"
           size="l"
@@ -66,6 +66,12 @@ const styles = StyleSheet.create({
     backgroundColor: "#ea8685",
     alignItems: "center",
     justifyContent: "center"
+  },
+  timeText: {
+    fontSize: 40,
+    color: "#2d3436",
+    fontWeight: "500",
+    marginBottom: 15
   },
   bottomBanner: {
     position: "absolute",

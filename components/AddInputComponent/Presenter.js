@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, View, TextInput } from "react-native";
+import { StyleSheet, View, TextInput, Keyboard } from "react-native";
 import Button from "../ButtonComponent";
 
 class AddInput extends Component {
@@ -40,6 +40,7 @@ class AddInput extends Component {
       this.setState({
         text: ""
       });
+      Keyboard.dismiss();
     }
   };
 }
